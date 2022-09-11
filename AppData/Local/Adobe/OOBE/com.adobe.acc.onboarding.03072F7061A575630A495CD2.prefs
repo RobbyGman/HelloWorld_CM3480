@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<prefs>
+	<property key="starterLibs.welcome.steps">0</property>
+	<property key="starterLibs.welcome.statusLight">1</property>
+	<property key="pluginmarketplace.search.steps">0</property>
+	<property key="pluginmarketplace.search.statusLight">1</property>
+	<property key="pluginmarketplace.search.version">1</property>
+	<property key="starterLibs.welcome.version">1</property>
+	<property key="marketplace.onboarding.steps">0</property>
+	<property key="marketplace.onboarding.statusLight">1</property>
+	<property key="marketplace.onboarding.version">2</property>
+	<property key="ccd.fontmanagementpanel.synced.steps">0</property>
+	<property key="ccd.fontmanagementpanel.synced.statusLight">1</property>
+	<property key="ccd.fontmanagementpanel.synced.version">1</property>
+	<property key="ccd.onboarding.assets.steps">yourWorkMain1,cloudDocs,yourLibs,sharedWithYou</property>
+	<property key="ccd.onboarding.assets.statusLight">0</property>
+	<property key="ccd.onboarding.assets.version">2</property>
+	<property key="nuj.onboarding.steps">main.nuj.dialog</property>
+	<property key="nuj.onboarding.statusLight">0</property>
+	<property key="nuj.onboarding.version">1</property>
+	<property key="ccd.onboarding.assets.lib.yourLibraries.steps">manage.inApp.libraries,browse.shared.libraries,find.more.libraries</property>
+	<property key="ccd.onboarding.assets.lib.yourLibraries.statusLight">0</property>
+	<property key="ccd.onboarding.assets.lib.yourLibraries.version">1</property>
+	<property key="nuj.empty.onboarding.version">0</property>
+</prefs>

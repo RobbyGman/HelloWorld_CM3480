@@ -1,0 +1,131 @@
+{
+	"name": "gaim",
+	"displayName": "Games and Interactive Media Plugin",
+	"description": "Games and Interactive Media VS Code",
+	"version": "0.0.73",
+	"publisher": "ucf-gaim",
+	"repository": "https://github.com/many-realities-studio/codefeel-vsc",
+	"engines": {
+		"vscode": "^1.57.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"workspaceContains:.ucf/vsc.json"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "package-explorer",
+					"title": "GaIM Explorer",
+					"icon": "media/task.svg",
+					"visibility": "hidden"
+				}
+			]
+		},
+		"views": {
+			"package-explorer": [
+				{
+					"id": "studentPanel",
+					"name": "GaIM",
+					"icon": "media/task.svg",
+					"contextualTitle": "Test Case Explorer"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "gaim.registerRepo",
+				"title": "GaiM: Register Repo"
+			},
+			{
+				"command": "gaim.submitRepo",
+				"title": "GaiM: Submit Repo"
+			},
+			{
+				"command": "getLogs.start",
+				"title": "Get Logs"
+			},
+			{
+				"command": "gaim.installTests",
+				"title": "GaIM: Install Tests"
+			},
+			{
+				"command": "gaim.runTests",
+				"title": "GaIM: Run Tests"
+			}
+		],
+		"configuration": {
+			"title": "GaiM",
+			"properties": {
+				"gaim.enabled": {
+					"type": "boolean",
+					"default": true,
+					"description": "Specifies whether the GaiM extension is enabled."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "bash -c \"cp host src/host.ts\" && webpack --mode production",
+		"compile": "tsc -p ./",
+		"build": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc --watch --preserveWatchOutput --pretty false -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./dist/test/runTest.js",
+		"package": "vsce package",
+		"deploy": "bash -c \"envs && vsce package && mv gaim-${npm_package_version}.vsix gaim.vsix && az storage blob upload --account-name manyrealities --container-name codefeel --name gaim.vsix --file gaim.vsix --overwrite && curl -X PUT --header secret:`cat .secret 2>/dev/null` https://cf.gaim.dev/git/update/gaim.vsix/${npm_package_version}\""
+	},
+	"devDependencies": {
+		"@types/chai": "^4.2.14",
+		"@types/deep-equal": "^1.0.1",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.0",
+		"@types/node": "^14.14.21",
+		"@types/tar": "^4.0.4",
+		"@types/vscode": "^1.48.0",
+		"@typescript-eslint/eslint-plugin": "^3.10.1",
+		"@typescript-eslint/parser": "^3.10.1",
+		"chai": "^4.2.0",
+		"esbuild": "^0.12.14",
+		"eslint": "^7.18.0",
+		"from-env": "^1.1.4",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"sync-request": "^6.1.0",
+		"ts-loader": "^8.0.15",
+		"typescript": "^3.9.10",
+		"vscode-test": "^1.4.1",
+		"webpack": "^5.17.0",
+		"webpack-cli": "^4.10.0"
+	},
+	"dependencies": {
+		"axios": "^0.21.1",
+		"child_process": "^1.0.2",
+		"deep-equal": "^2.0.5",
+		"dotenv": "^8.2.0",
+		"fs": "0.0.1-security",
+		"mobx": "^6.3.2",
+		"moment": "^2.29.1",
+		"os": "^0.1.1",
+		"path": "^0.12.7",
+		"tar": "^6.1.0",
+		"upath": "^2.0.1"
+	},
+	"extensionDependencies": [
+		"vsls-contrib.gitdoc",
+		"vsls-contrib.codetour",
+		"vscode.git"
+	],
+	"extensionKind": [
+		"workspace"
+	],
+	"__metadata": {
+		"isApplicationScoped": false,
+		"installedTimestamp": 1662856514202
+	}
+}

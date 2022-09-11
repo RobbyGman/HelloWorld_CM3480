@@ -1,0 +1,1 @@
+This is not licensed for use outside of GaiM

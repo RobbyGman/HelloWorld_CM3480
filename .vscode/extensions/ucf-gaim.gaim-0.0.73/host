@@ -1,0 +1,10 @@
+const prod = "https://cf.gaim.dev"
+const dev = "homer.home.lan:4000"
+const host = prod
+export default host
+export const featuresEnabled = {
+  studentPanel: false,
+  versionCheck: true,
+  protocol: "https"
+}
+export const notLocal = host === prod
